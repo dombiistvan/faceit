@@ -15,12 +15,19 @@ services:
     hostname: mysql
     ports:
       - 3306:3306
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 30
   adminer:
     container_name: faceit-adminer
     image: adminer:latest
     restart: always
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
     ports:
       - 8080:8080
   faceit:
@@ -37,7 +44,7 @@ services:
     ports:
       - 80:8081
     depends_on:
-      - mysql
-      - adminer
+      mysql:
+        condition: service_healthy
     volumes:
       - "~/go/src/faceit/logs:/go/src/faceit/logs:rw"

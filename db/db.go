@@ -49,27 +49,8 @@ func NewManager(config *Config) (*Manager, error) {
 		return nil, fmt.Errorf("database config is invalid: %w", err)
 	}
 
-	//first try reach Database host to ensure service running
-	gormDBConn, err := getGormConnection(*config, false)
-	if err != nil {
-		tries, maxTry := 0, 10
-		ticker := time.NewTicker(time.Millisecond * 500)
-		for _ = range ticker.C {
-			tries++
-			//helpers.NotifyChan <- fmt.Sprintf("try to connect to database...%d", tries)
-			gormDBConn, err = getGormConnection(*config, false)
-			if err == nil || tries >= maxTry {
-				ticker.Stop()
-				break
-			}
-		}
-		if err != nil {
-			return nil, err
-		}
-	}
-
 	// try to connect to DATABASE
-	gormDBConn, err = getGormConnection(*config, true)
+	gormDBConn, err := getGormConnection(*config, true)
 
 	if err != nil {
 		if !strings.Contains(err.Error(), "Unknown database") {
