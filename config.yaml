@@ -1,0 +1,9 @@
+app_port: 8081
+db:
+  dbname: "faceit"
+  dbhost: "mysql:3306"
+  dbuser: "faceit"
+  dbpassword: "NootNoot"
+  charset: "utf8mb4"
+  parse_time: true
+  loc: "Local"

@@ -1,0 +1,9 @@
+app_port:
+db:
+  dbname: "something"
+  dbhost: "mysql:3306"
+  dbuser: "root"
+  dbpassword: ""
+  charset: "utf8mb4"
+  parse_time: true
+  loc: "Local"

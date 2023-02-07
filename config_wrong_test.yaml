@@ -1,0 +1,9 @@
+app_port:
+  db
+dbname: "something"
+dbhost: "mysql:"
+dbuser: "faceit"
+dbpassword: "NootNoot"
+charset: "utf8mb4"
+parse_time: true
+loc: "Local"
