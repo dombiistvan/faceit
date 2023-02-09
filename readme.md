@@ -99,7 +99,7 @@ Method: <code>GET</code><br />
 URL
 format: <code> http://localhost/user/list?page=3&limit=10&query_param=value&query_param2=value2....query_paramn=valuen </code> <br />
 URL
-example: <code> http://localhost/user/list?first_name=Dombi&last_name=istvan&nickname=cool&country=hu&email=gmail&id=5c188809-1b2cpage=2&limit=3 </code> <br />
+example: <code> http://localhost/user/list?first_name=Dombi&last_name=istvan&nickname=cool&country=hu&email=gmail&id=5c188809-1b2c&page=2&limit=3 </code> <br />
 Available Filter query params: ```first_name, last_name, nickname, email, country, id```<br />
 Available System query params: ```page```(default: 1), ```limit```(default: 10)<br />
 Request-Body: <cite>no request body</cite><br />
